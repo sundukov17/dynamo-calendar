@@ -1,0 +1,179 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Claude Buddy//Dynamo Moscow Home 2026-27//RU
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Динамо Москва — дома 2026/27
+X-WR-TIMEZONE:Europe/Moscow
+BEGIN:VTIMEZONE
+TZID:Europe/Moscow
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZOFFSETFROM:+0300
+TZOFFSETTO:+0300
+TZNAME:MSK
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:dynamo-2627-r01@claude-buddy
+DTSTAMP:20260722T000000Z
+DTSTART;TZID=Europe/Moscow:20260725T140000
+DTEND;TZID=Europe/Moscow:20260725T154500
+SUMMARY:⚽ Динамо — Крылья Советов (РПЛ, 1 тур)
+LOCATION:ВТБ Арена, Москва
+DESCRIPTION:Источник: официальный календарь ФК «Динамо».
+END:VEVENT
+BEGIN:VEVENT
+UID:dynamo-2627-r03@claude-buddy
+DTSTAMP:20260722T000000Z
+DTSTART;TZID=Europe/Moscow:20260809T143000
+DTEND;TZID=Europe/Moscow:20260809T161500
+SUMMARY:⚽ Динамо — Динамо Махачкала (РПЛ, 3 тур)
+LOCATION:ВТБ Арена, Москва
+DESCRIPTION:Источник: официальный календарь ФК «Динамо».
+END:VEVENT
+BEGIN:VEVENT
+UID:dynamo-2627-cup2@claude-buddy
+DTSTAMP:20260722T000000Z
+DTSTART;TZID=Europe/Moscow:20260819T204500
+DTEND;TZID=Europe/Moscow:20260819T223000
+SUMMARY:🏆 Динамо — Краснодар (Кубок России, групповой этап, 2 тур)
+LOCATION:ВТБ Арена, Москва
+DESCRIPTION:Источник: официальный календарь ФК «Динамо».
+END:VEVENT
+BEGIN:VEVENT
+UID:dynamo-2627-r05@claude-buddy
+DTSTAMP:20260722T000000Z
+DTSTART;TZID=Europe/Moscow:20260823T151500
+DTEND;TZID=Europe/Moscow:20260823T170000
+SUMMARY:⚽ Динамо — Родина (РПЛ, 5 тур)
+LOCATION:ВТБ Арена, Москва
+DESCRIPTION:Источник: официальный календарь ФК «Динамо».
+END:VEVENT
+BEGIN:VEVENT
+UID:dynamo-2627-cup3@claude-buddy
+DTSTAMP:20260722T000000Z
+DTSTART;TZID=Europe/Moscow:20260903T193000
+DTEND;TZID=Europe/Moscow:20260903T211500
+SUMMARY:🏆 Динамо — Ахмат (Кубок России, групповой этап, 3 тур)
+LOCATION:ВТБ Арена, Москва
+DESCRIPTION:Источник: официальный календарь ФК «Динамо».
+END:VEVENT
+BEGIN:VEVENT
+UID:dynamo-2627-r07@claude-buddy
+DTSTAMP:20260722T000000Z
+DTSTART;TZID=Europe/Moscow:20260906T183000
+DTEND;TZID=Europe/Moscow:20260906T201500
+SUMMARY:⚽ Динамо — Спартак (РПЛ, 7 тур)
+LOCATION:ВТБ Арена, Москва
+DESCRIPTION:Источник: официальный календарь ФК «Динамо».
+END:VEVENT
+BEGIN:VEVENT
+UID:dynamo-2627-r08@claude-buddy
+DTSTAMP:20260722T000000Z
+DTSTART;TZID=Europe/Moscow:20260912T183000
+DTEND;TZID=Europe/Moscow:20260912T201500
+SUMMARY:⚽ Динамо — Оренбург (РПЛ, 8 тур)
+LOCATION:ВТБ Арена, Москва
+DESCRIPTION:Источник: официальный календарь ФК «Динамо».
+END:VEVENT
+BEGIN:VEVENT
+UID:dynamo-2627-r11@claude-buddy
+DTSTAMP:20260703T000000Z
+DTSTART;VALUE=DATE:20261016
+DTEND;VALUE=DATE:20261020
+SUMMARY:⚽ Динамо — ЦСКА (РПЛ, 11 тур)
+LOCATION:ВТБ Арена, Москва
+DESCRIPTION:Окно тура: 16–19 октября 2026. Точная дата и время будут назначены РПЛ позже.
+END:VEVENT
+BEGIN:VEVENT
+UID:dynamo-2627-r13@claude-buddy
+DTSTAMP:20260703T000000Z
+DTSTART;VALUE=DATE:20261030
+DTEND;VALUE=DATE:20261103
+SUMMARY:⚽ Динамо — Ахмат (РПЛ, 13 тур)
+LOCATION:ВТБ Арена, Москва
+DESCRIPTION:Окно тура: 30 октября – 2 ноября 2026. Точная дата и время будут назначены РПЛ позже.
+END:VEVENT
+BEGIN:VEVENT
+UID:dynamo-2627-r15@claude-buddy
+DTSTAMP:20260703T000000Z
+DTSTART;VALUE=DATE:20261120
+DTEND;VALUE=DATE:20261124
+SUMMARY:⚽ Динамо — Краснодар (РПЛ, 15 тур)
+LOCATION:ВТБ Арена, Москва
+DESCRIPTION:Окно тура: 20–23 ноября 2026. Точная дата и время будут назначены РПЛ позже.
+END:VEVENT
+BEGIN:VEVENT
+UID:dynamo-2627-cup6@claude-buddy
+DTSTAMP:20260703T000000Z
+DTSTART;VALUE=DATE:20261124
+DTEND;VALUE=DATE:20261127
+SUMMARY:🏆 Динамо — Факел (Кубок России, групповой этап, 6 тур)
+LOCATION:ВТБ Арена, Москва
+DESCRIPTION:Окно тура: 24–26 ноября 2026. Точная дата и время будут назначены позже.
+END:VEVENT
+BEGIN:VEVENT
+UID:dynamo-2627-r18@claude-buddy
+DTSTAMP:20260703T000000Z
+DTSTART;VALUE=DATE:20270226
+DTEND;VALUE=DATE:20270302
+SUMMARY:⚽ Динамо — Рубин (РПЛ, 18 тур)
+LOCATION:ВТБ Арена, Москва
+DESCRIPTION:Окно тура: 26 февраля – 1 марта 2027. Точная дата и время будут назначены РПЛ позже.
+END:VEVENT
+BEGIN:VEVENT
+UID:dynamo-2627-r20@claude-buddy
+DTSTAMP:20260703T000000Z
+DTSTART;VALUE=DATE:20270312
+DTEND;VALUE=DATE:20270316
+SUMMARY:⚽ Динамо — Локомотив (РПЛ, 20 тур)
+LOCATION:ВТБ Арена, Москва
+DESCRIPTION:Окно тура: 12–15 марта 2027. Точная дата и время будут назначены РПЛ позже.
+END:VEVENT
+BEGIN:VEVENT
+UID:dynamo-2627-r22@claude-buddy
+DTSTAMP:20260703T000000Z
+DTSTART;VALUE=DATE:20270402
+DTEND;VALUE=DATE:20270406
+SUMMARY:⚽ Динамо — Балтика (РПЛ, 22 тур)
+LOCATION:ВТБ Арена, Москва
+DESCRIPTION:Окно тура: 2–5 апреля 2027. Точная дата и время будут назначены РПЛ позже.
+END:VEVENT
+BEGIN:VEVENT
+UID:dynamo-2627-r24@claude-buddy
+DTSTAMP:20260703T000000Z
+DTSTART;VALUE=DATE:20270416
+DTEND;VALUE=DATE:20270420
+SUMMARY:⚽ Динамо — Факел (РПЛ, 24 тур)
+LOCATION:ВТБ Арена, Москва
+DESCRIPTION:Окно тура: 16–19 апреля 2027. Точная дата и время будут назначены РПЛ позже.
+END:VEVENT
+BEGIN:VEVENT
+UID:dynamo-2627-r26@claude-buddy
+DTSTAMP:20260703T000000Z
+DTSTART;VALUE=DATE:20270430
+DTEND;VALUE=DATE:20270504
+SUMMARY:⚽ Динамо — Акрон (РПЛ, 26 тур)
+LOCATION:ВТБ Арена, Москва
+DESCRIPTION:Окно тура: 30 апреля – 3 мая 2027. Точная дата и время будут назначены РПЛ позже.
+END:VEVENT
+BEGIN:VEVENT
+UID:dynamo-2627-r27@claude-buddy
+DTSTAMP:20260703T000000Z
+DTSTART;VALUE=DATE:20270507
+DTEND;VALUE=DATE:20270511
+SUMMARY:⚽ Динамо — Ростов (РПЛ, 27 тур)
+LOCATION:ВТБ Арена, Москва
+DESCRIPTION:Окно тура: 7–10 мая 2027. Точная дата и время будут назначены РПЛ позже.
+END:VEVENT
+BEGIN:VEVENT
+UID:dynamo-2627-r29@claude-buddy
+DTSTAMP:20260703T000000Z
+DTSTART;VALUE=DATE:20270521
+DTEND;VALUE=DATE:20270525
+SUMMARY:⚽ Динамо — Зенит (РПЛ, 29 тур)
+LOCATION:ВТБ Арена, Москва
+DESCRIPTION:Окно тура: 21–24 мая 2027. Точная дата и время будут назначены РПЛ позже.
+END:VEVENT
+END:VCALENDAR
