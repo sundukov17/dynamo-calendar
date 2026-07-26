@@ -176,4 +176,310 @@ SUMMARY:⚽ Динамо — Зенит (РПЛ, 29 тур)
 LOCATION:ВТБ Арена, Москва
 DESCRIPTION:Окно тура: 21–24 мая 2027. Точная дата и время будут назначены РПЛ позже.
 END:VEVENT
+BEGIN:VEVENT
+UID:dynamo-hockey-2627-01@claude-buddy
+DTSTAMP:20260726T000000Z
+DTSTART;VALUE=DATE:20260909
+DTEND;VALUE=DATE:20260910
+SUMMARY:🏒 Динамо — Адмирал (КХЛ)
+LOCATION:ВТБ Ледовый Дворец, Москва
+DESCRIPTION:Источник: официальный сайт ХК «Динамо» (dynamo.ru). Точное время начала будет объявлено КХЛ позже.
+END:VEVENT
+BEGIN:VEVENT
+UID:dynamo-hockey-2627-02@claude-buddy
+DTSTAMP:20260726T000000Z
+DTSTART;VALUE=DATE:20260912
+DTEND;VALUE=DATE:20260913
+SUMMARY:🏒 Динамо — Динамо Мн (КХЛ)
+LOCATION:ВТБ Ледовый Дворец, Москва
+DESCRIPTION:Источник: официальный сайт ХК «Динамо» (dynamo.ru). Точное время начала будет объявлено КХЛ позже.
+END:VEVENT
+BEGIN:VEVENT
+UID:dynamo-hockey-2627-03@claude-buddy
+DTSTAMP:20260726T000000Z
+DTSTART;VALUE=DATE:20260922
+DTEND;VALUE=DATE:20260923
+SUMMARY:🏒 Динамо — Барыс (КХЛ)
+LOCATION:ВТБ Ледовый Дворец, Москва
+DESCRIPTION:Источник: официальный сайт ХК «Динамо» (dynamo.ru). Точное время начала будет объявлено КХЛ позже.
+END:VEVENT
+BEGIN:VEVENT
+UID:dynamo-hockey-2627-04@claude-buddy
+DTSTAMP:20260726T000000Z
+DTSTART;VALUE=DATE:20260924
+DTEND;VALUE=DATE:20260925
+SUMMARY:🏒 Динамо — Динамо Мн (КХЛ)
+LOCATION:ВТБ Ледовый Дворец, Москва
+DESCRIPTION:Источник: официальный сайт ХК «Динамо» (dynamo.ru). Точное время начала будет объявлено КХЛ позже.
+END:VEVENT
+BEGIN:VEVENT
+UID:dynamo-hockey-2627-05@claude-buddy
+DTSTAMP:20260726T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:🏒 Динамо — Салават Юлаев (КХЛ)
+LOCATION:ВТБ Ледовый Дворец, Москва
+DESCRIPTION:Источник: официальный сайт ХК «Динамо» (dynamo.ru). Точное время начала будет объявлено КХЛ позже.
+END:VEVENT
+BEGIN:VEVENT
+UID:dynamo-hockey-2627-06@claude-buddy
+DTSTAMP:20260726T000000Z
+DTSTART;VALUE=DATE:20260928
+DTEND;VALUE=DATE:20260929
+SUMMARY:🏒 Динамо — Трактор (КХЛ)
+LOCATION:ВТБ Ледовый Дворец, Москва
+DESCRIPTION:Источник: официальный сайт ХК «Динамо» (dynamo.ru). Точное время начала будет объявлено КХЛ позже.
+END:VEVENT
+BEGIN:VEVENT
+UID:dynamo-hockey-2627-07@claude-buddy
+DTSTAMP:20260726T000000Z
+DTSTART;VALUE=DATE:20261001
+DTEND;VALUE=DATE:20261002
+SUMMARY:🏒 Динамо — Торпедо (КХЛ)
+LOCATION:ВТБ Ледовый Дворец, Москва
+DESCRIPTION:Источник: официальный сайт ХК «Динамо» (dynamo.ru). Точное время начала будет объявлено КХЛ позже.
+END:VEVENT
+BEGIN:VEVENT
+UID:dynamo-hockey-2627-08@claude-buddy
+DTSTAMP:20260726T000000Z
+DTSTART;VALUE=DATE:20261007
+DTEND;VALUE=DATE:20261008
+SUMMARY:🏒 Динамо — Шанхайские Драконы (КХЛ)
+LOCATION:ВТБ Ледовый Дворец, Москва
+DESCRIPTION:Источник: официальный сайт ХК «Динамо» (dynamo.ru). Точное время начала будет объявлено КХЛ позже.
+END:VEVENT
+BEGIN:VEVENT
+UID:dynamo-hockey-2627-09@claude-buddy
+DTSTAMP:20260726T000000Z
+DTSTART;VALUE=DATE:20261009
+DTEND;VALUE=DATE:20261010
+SUMMARY:🏒 Динамо — ЦСКА (КХЛ)
+LOCATION:ВТБ Ледовый Дворец, Москва
+DESCRIPTION:Источник: официальный сайт ХК «Динамо» (dynamo.ru). Точное время начала будет объявлено КХЛ позже.
+END:VEVENT
+BEGIN:VEVENT
+UID:dynamo-hockey-2627-10@claude-buddy
+DTSTAMP:20260726T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:🏒 Динамо — СКА (КХЛ)
+LOCATION:ВТБ Ледовый Дворец, Москва
+DESCRIPTION:Источник: официальный сайт ХК «Динамо» (dynamo.ru). Точное время начала будет объявлено КХЛ позже.
+END:VEVENT
+BEGIN:VEVENT
+UID:dynamo-hockey-2627-11@claude-buddy
+DTSTAMP:20260726T000000Z
+DTSTART;VALUE=DATE:20261020
+DTEND;VALUE=DATE:20261021
+SUMMARY:🏒 Динамо — Сибирь (КХЛ)
+LOCATION:ВТБ Ледовый Дворец, Москва
+DESCRIPTION:Источник: официальный сайт ХК «Динамо» (dynamo.ru). Точное время начала будет объявлено КХЛ позже.
+END:VEVENT
+BEGIN:VEVENT
+UID:dynamo-hockey-2627-12@claude-buddy
+DTSTAMP:20260726T000000Z
+DTSTART;VALUE=DATE:20261026
+DTEND;VALUE=DATE:20261027
+SUMMARY:🏒 Динамо — Авангард (КХЛ)
+LOCATION:ВТБ Ледовый Дворец, Москва
+DESCRIPTION:Источник: официальный сайт ХК «Динамо» (dynamo.ru). Точное время начала будет объявлено КХЛ позже.
+END:VEVENT
+BEGIN:VEVENT
+UID:dynamo-hockey-2627-13@claude-buddy
+DTSTAMP:20260726T000000Z
+DTSTART;VALUE=DATE:20261028
+DTEND;VALUE=DATE:20261029
+SUMMARY:🏒 Динамо — Амур (КХЛ)
+LOCATION:ВТБ Ледовый Дворец, Москва
+DESCRIPTION:Источник: официальный сайт ХК «Динамо» (dynamo.ru). Точное время начала будет объявлено КХЛ позже.
+END:VEVENT
+BEGIN:VEVENT
+UID:dynamo-hockey-2627-14@claude-buddy
+DTSTAMP:20260726T000000Z
+DTSTART;VALUE=DATE:20261122
+DTEND;VALUE=DATE:20261123
+SUMMARY:🏒 Динамо — ЦСКА (КХЛ)
+LOCATION:ВТБ Ледовый Дворец, Москва
+DESCRIPTION:Источник: официальный сайт ХК «Динамо» (dynamo.ru). Точное время начала будет объявлено КХЛ позже.
+END:VEVENT
+BEGIN:VEVENT
+UID:dynamo-hockey-2627-15@claude-buddy
+DTSTAMP:20260726T000000Z
+DTSTART;VALUE=DATE:20261124
+DTEND;VALUE=DATE:20261125
+SUMMARY:🏒 Динамо — Автомобилист (КХЛ)
+LOCATION:ВТБ Ледовый Дворец, Москва
+DESCRIPTION:Источник: официальный сайт ХК «Динамо» (dynamo.ru). Точное время начала будет объявлено КХЛ позже.
+END:VEVENT
+BEGIN:VEVENT
+UID:dynamo-hockey-2627-16@claude-buddy
+DTSTAMP:20260726T000000Z
+DTSTART;VALUE=DATE:20261130
+DTEND;VALUE=DATE:20261201
+SUMMARY:🏒 Динамо — Торпедо (КХЛ)
+LOCATION:ВТБ Ледовый Дворец, Москва
+DESCRIPTION:Источник: официальный сайт ХК «Динамо» (dynamo.ru). Точное время начала будет объявлено КХЛ позже.
+END:VEVENT
+BEGIN:VEVENT
+UID:dynamo-hockey-2627-17@claude-buddy
+DTSTAMP:20260726T000000Z
+DTSTART;VALUE=DATE:20261215
+DTEND;VALUE=DATE:20261216
+SUMMARY:🏒 Динамо — Спартак (КХЛ)
+LOCATION:ВТБ Ледовый Дворец, Москва
+DESCRIPTION:Источник: официальный сайт ХК «Динамо» (dynamo.ru). Точное время начала будет объявлено КХЛ позже.
+END:VEVENT
+BEGIN:VEVENT
+UID:dynamo-hockey-2627-18@claude-buddy
+DTSTAMP:20260726T000000Z
+DTSTART;VALUE=DATE:20261217
+DTEND;VALUE=DATE:20261218
+SUMMARY:🏒 Динамо — Металлург Мг (КХЛ)
+LOCATION:ВТБ Ледовый Дворец, Москва
+DESCRIPTION:Источник: официальный сайт ХК «Динамо» (dynamo.ru). Точное время начала будет объявлено КХЛ позже.
+END:VEVENT
+BEGIN:VEVENT
+UID:dynamo-hockey-2627-19@claude-buddy
+DTSTAMP:20260726T000000Z
+DTSTART;VALUE=DATE:20270108
+DTEND;VALUE=DATE:20270109
+SUMMARY:🏒 Динамо — Динамо Мн (КХЛ)
+LOCATION:ВТБ Ледовый Дворец, Москва
+DESCRIPTION:Источник: официальный сайт ХК «Динамо» (dynamo.ru). Точное время начала будет объявлено КХЛ позже.
+END:VEVENT
+BEGIN:VEVENT
+UID:dynamo-hockey-2627-20@claude-buddy
+DTSTAMP:20260726T000000Z
+DTSTART;VALUE=DATE:20270110
+DTEND;VALUE=DATE:20270111
+SUMMARY:🏒 Динамо — ЦСКА (КХЛ)
+LOCATION:ВТБ Ледовый Дворец, Москва
+DESCRIPTION:Источник: официальный сайт ХК «Динамо» (dynamo.ru). Точное время начала будет объявлено КХЛ позже.
+END:VEVENT
+BEGIN:VEVENT
+UID:dynamo-hockey-2627-21@claude-buddy
+DTSTAMP:20260726T000000Z
+DTSTART;VALUE=DATE:20270113
+DTEND;VALUE=DATE:20270114
+SUMMARY:🏒 Динамо — Северсталь (КХЛ)
+LOCATION:ВТБ Ледовый Дворец, Москва
+DESCRIPTION:Источник: официальный сайт ХК «Динамо» (dynamo.ru). Точное время начала будет объявлено КХЛ позже.
+END:VEVENT
+BEGIN:VEVENT
+UID:dynamo-hockey-2627-22@claude-buddy
+DTSTAMP:20260726T000000Z
+DTSTART;VALUE=DATE:20270115
+DTEND;VALUE=DATE:20270116
+SUMMARY:🏒 Динамо — Лада (КХЛ)
+LOCATION:ВТБ Ледовый Дворец, Москва
+DESCRIPTION:Источник: официальный сайт ХК «Динамо» (dynamo.ru). Точное время начала будет объявлено КХЛ позже.
+END:VEVENT
+BEGIN:VEVENT
+UID:dynamo-hockey-2627-23@claude-buddy
+DTSTAMP:20260726T000000Z
+DTSTART;VALUE=DATE:20270117
+DTEND;VALUE=DATE:20270118
+SUMMARY:🏒 Динамо — СКА (КХЛ)
+LOCATION:ВТБ Ледовый Дворец, Москва
+DESCRIPTION:Источник: официальный сайт ХК «Динамо» (dynamo.ru). Точное время начала будет объявлено КХЛ позже.
+END:VEVENT
+BEGIN:VEVENT
+UID:dynamo-hockey-2627-24@claude-buddy
+DTSTAMP:20260726T000000Z
+DTSTART;VALUE=DATE:20270125
+DTEND;VALUE=DATE:20270126
+SUMMARY:🏒 Динамо — Нефтехимик (КХЛ)
+LOCATION:ВТБ Ледовый Дворец, Москва
+DESCRIPTION:Источник: официальный сайт ХК «Динамо» (dynamo.ru). Точное время начала будет объявлено КХЛ позже.
+END:VEVENT
+BEGIN:VEVENT
+UID:dynamo-hockey-2627-25@claude-buddy
+DTSTAMP:20260726T000000Z
+DTSTART;VALUE=DATE:20270127
+DTEND;VALUE=DATE:20270128
+SUMMARY:🏒 Динамо — ХК Сочи (КХЛ)
+LOCATION:ВТБ Ледовый Дворец, Москва
+DESCRIPTION:Источник: официальный сайт ХК «Динамо» (dynamo.ru). Точное время начала будет объявлено КХЛ позже.
+END:VEVENT
+BEGIN:VEVENT
+UID:dynamo-hockey-2627-26@claude-buddy
+DTSTAMP:20260726T000000Z
+DTSTART;VALUE=DATE:20270129
+DTEND;VALUE=DATE:20270130
+SUMMARY:🏒 Динамо — ХК Сочи (КХЛ)
+LOCATION:ВТБ Ледовый Дворец, Москва
+DESCRIPTION:Источник: официальный сайт ХК «Динамо» (dynamo.ru). Точное время начала будет объявлено КХЛ позже.
+END:VEVENT
+BEGIN:VEVENT
+UID:dynamo-hockey-2627-27@claude-buddy
+DTSTAMP:20260726T000000Z
+DTSTART;VALUE=DATE:20270131
+DTEND;VALUE=DATE:20270201
+SUMMARY:🏒 Динамо — Северсталь (КХЛ)
+LOCATION:ВТБ Ледовый Дворец, Москва
+DESCRIPTION:Источник: официальный сайт ХК «Динамо» (dynamo.ru). Точное время начала будет объявлено КХЛ позже.
+END:VEVENT
+BEGIN:VEVENT
+UID:dynamo-hockey-2627-28@claude-buddy
+DTSTAMP:20260726T000000Z
+DTSTART;VALUE=DATE:20270202
+DTEND;VALUE=DATE:20270203
+SUMMARY:🏒 Динамо — Лада (КХЛ)
+LOCATION:ВТБ Ледовый Дворец, Москва
+DESCRIPTION:Источник: официальный сайт ХК «Динамо» (dynamo.ru). Точное время начала будет объявлено КХЛ позже.
+END:VEVENT
+BEGIN:VEVENT
+UID:dynamo-hockey-2627-29@claude-buddy
+DTSTAMP:20260726T000000Z
+DTSTART;VALUE=DATE:20270216
+DTEND;VALUE=DATE:20270217
+SUMMARY:🏒 Динамо — Ак Барс (КХЛ)
+LOCATION:ВТБ Ледовый Дворец, Москва
+DESCRIPTION:Источник: официальный сайт ХК «Динамо» (dynamo.ru). Точное время начала будет объявлено КХЛ позже.
+END:VEVENT
+BEGIN:VEVENT
+UID:dynamo-hockey-2627-30@claude-buddy
+DTSTAMP:20260726T000000Z
+DTSTART;VALUE=DATE:20270301
+DTEND;VALUE=DATE:20270302
+SUMMARY:🏒 Динамо — Шанхайские Драконы (КХЛ)
+LOCATION:ВТБ Ледовый Дворец, Москва
+DESCRIPTION:Источник: официальный сайт ХК «Динамо» (dynamo.ru). Точное время начала будет объявлено КХЛ позже.
+END:VEVENT
+BEGIN:VEVENT
+UID:dynamo-hockey-2627-31@claude-buddy
+DTSTAMP:20260726T000000Z
+DTSTART;VALUE=DATE:20270303
+DTEND;VALUE=DATE:20270304
+SUMMARY:🏒 Динамо — Локомотив (КХЛ)
+LOCATION:ВТБ Ледовый Дворец, Москва
+DESCRIPTION:Источник: официальный сайт ХК «Динамо» (dynamo.ru). Точное время начала будет объявлено КХЛ позже.
+END:VEVENT
+BEGIN:VEVENT
+UID:dynamo-hockey-2627-32@claude-buddy
+DTSTAMP:20260726T000000Z
+DTSTART;VALUE=DATE:20270308
+DTEND;VALUE=DATE:20270309
+SUMMARY:🏒 Динамо — Спартак (КХЛ)
+LOCATION:ВТБ Ледовый Дворец, Москва
+DESCRIPTION:Источник: официальный сайт ХК «Динамо» (dynamo.ru). Точное время начала будет объявлено КХЛ позже.
+END:VEVENT
+BEGIN:VEVENT
+UID:dynamo-hockey-2627-33@claude-buddy
+DTSTAMP:20260726T000000Z
+DTSTART;VALUE=DATE:20270310
+DTEND;VALUE=DATE:20270311
+SUMMARY:🏒 Динамо — Ак Барс (КХЛ)
+LOCATION:ВТБ Ледовый Дворец, Москва
+DESCRIPTION:Источник: официальный сайт ХК «Динамо» (dynamo.ru). Точное время начала будет объявлено КХЛ позже.
+END:VEVENT
+BEGIN:VEVENT
+UID:dynamo-hockey-2627-34@claude-buddy
+DTSTAMP:20260726T000000Z
+DTSTART;VALUE=DATE:20270316
+DTEND;VALUE=DATE:20270317
+SUMMARY:🏒 Динамо — Локомотив (КХЛ)
+LOCATION:ВТБ Ледовый Дворец, Москва
+DESCRIPTION:Источник: официальный сайт ХК «Динамо» (dynamo.ru). Точное время начала будет объявлено КХЛ позже.
+END:VEVENT
 END:VCALENDAR
