@@ -1,9 +1,9 @@
 BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//Claude Buddy//Dynamo Moscow Home 2026-27//RU
+PRODID:-//Claude Buddy//Dynamo Moscow Home Fixtures//RU
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:Динамо Москва — дома 2026/27
+X-WR-CALNAME:Динамо Москва — домашние матчи
 X-WR-TIMEZONE:Europe/Moscow
 BEGIN:VTIMEZONE
 TZID:Europe/Moscow
