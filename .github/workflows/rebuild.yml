@@ -23,15 +23,21 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Проверить доступность источника
+      # Строгие шаги, но прогон не роняют: их статус виден в API как индикатор
+      # здоровья источников. Судьбу сборки решает следующий шаг.
+      - name: Источник — футбол (fcdynamo.ru)
+        continue-on-error: true
         run: |
-          echo "== fcdynamo.ru (футбол) =="
-          curl -sS -o /tmp/feed.ics -w 'http=%{http_code} bytes=%{size_download}\n' \
-            --max-time 60 https://fcdynamo.ru/calendar/dynamo || echo "недоступен"
-          echo "событий в фиде: $(grep -c 'BEGIN:VEVENT' /tmp/feed.ics || echo 0)"
-          echo "== dynamo.ru (хоккей) =="
-          curl -sS -o /tmp/games.html -w 'http=%{http_code} bytes=%{size_download}\n' \
-            --max-time 60 https://dynamo.ru/games || echo "недоступен"
+          curl --fail --silent --show-error --max-time 60 \
+            -o /tmp/feed.ics https://fcdynamo.ru/calendar/dynamo
+          test "$(grep -c 'BEGIN:VEVENT' /tmp/feed.ics)" -gt 0
+
+      - name: Источник — хоккей (dynamo.ru)
+        continue-on-error: true
+        run: |
+          curl --fail --silent --show-error --max-time 60 \
+            -o /tmp/games.html https://dynamo.ru/games
+          grep -q 'data-calendar-date-start' /tmp/games.html
 
       - name: Собрать календарь
         run: python3 build_calendar.py
