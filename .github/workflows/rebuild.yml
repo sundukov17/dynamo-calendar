@@ -25,22 +25,25 @@ jobs:
 
       - name: Проверить доступность источника
         run: |
-          echo "== fcdynamo.ru =="
+          echo "== fcdynamo.ru (футбол) =="
           curl -sS -o /tmp/feed.ics -w 'http=%{http_code} bytes=%{size_download}\n' \
             --max-time 60 https://fcdynamo.ru/calendar/dynamo || echo "недоступен"
           echo "событий в фиде: $(grep -c 'BEGIN:VEVENT' /tmp/feed.ics || echo 0)"
+          echo "== dynamo.ru (хоккей) =="
+          curl -sS -o /tmp/games.html -w 'http=%{http_code} bytes=%{size_download}\n' \
+            --max-time 60 https://dynamo.ru/games || echo "недоступен"
 
       - name: Собрать календарь
         run: python3 build_calendar.py
 
       - name: Закоммитить, если что-то поменялось
         run: |
-          if git diff --quiet -- dynamo.ics state.json; then
+          if git diff --quiet -- dynamo.ics state.json hockey.json; then
             echo "изменений нет — коммит не нужен"
             exit 0
           fi
           git config user.name  "dynamo-calendar bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add dynamo.ics state.json
+          git add dynamo.ics state.json hockey.json
           git commit -m "Обновить календарь: $(grep -c 'BEGIN:VEVENT' dynamo.ics) матчей"
           git push

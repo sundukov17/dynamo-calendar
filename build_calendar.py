@@ -25,6 +25,7 @@ HOME_VENUE = "ВТБ Арена"
 OUT = ROOT / "dynamo.ics"
 STATE = ROOT / "state.json"
 HOCKEY = ROOT / "hockey.json"
+HOCKEY_PAGE = "https://dynamo.ru/games"
 
 # Средняя длительность, если источник не сказал иначе.
 FOOTBALL_LEN = timedelta(hours=1, minutes=45)
@@ -138,11 +139,108 @@ def parse_football():
     return events
 
 
+def scrape_hockey():
+    """Домашние матчи с сайта ХК «Динамо».
+
+    Сайт отдаёт только текущий месяц: рабочего фида на весь сезон у клуба нет
+    (filter-games отвечает 500, khl.ru закрыт ботозащитой). Поэтому точное время
+    проставляется матчам по мере того, как их месяц становится текущим.
+
+    Возвращает (домашние официальные матчи, авторитетный месяц) — или (…, None),
+    если месяц определить не удалось.
+    """
+    html = fetch(HOCKEY_PAGE)
+    # В сетке месяца видны и соседние дни, поэтому «охваченным» считаем только
+    # тот месяц, который страница реально показывает, — иначе сверка снесёт
+    # матчи соседнего месяца, о которых сайт сейчас ничего не говорит.
+    active = re.search(r'data-month="(\d+)"[^>]*_active', html)
+    active_month = int(active.group(1)) if active else None
+    blocks = re.findall(
+        r'<div class="calendarframe"([^>]*)>(.*?)(?=<div class="calendarframe|<div class="line-regular)',
+        html, re.S)
+    games, years = [], set()
+    for attrs, body in blocks:
+        if 'data-content="fill"' not in attrs:
+            continue
+        get = lambda n: (re.search(rf'{n}="([^"]*)"', attrs) or ["", ""])[1]
+        start = get("data-calendar-date-start")
+        if not start:
+            continue
+        dt = datetime.strptime(start, "%m/%d/%Y %H:%M")
+        if dt.month == active_month:
+            years.add(dt.year)
+        if get("data-location") != "home":
+            continue
+
+        # «Динамо (Москва) - Барыс (Астана)» -> «Барыс».
+        # У минского «Динамо» город оставляем, иначе не отличить от своих.
+        title = get("data-calendar-title")
+        sides = [x.strip() for x in re.split(r"\s+[-–—]\s+", title)]
+        rival = next((x for x in sides if not x.startswith("Динамо (Москва)")), "")
+        city = (re.search(r"\(([^)]*)\)", rival) or ["", ""])[1].strip()
+        name = re.sub(r"\s*\([^)]*\)", "", rival).strip()
+        opponent = f"{name} {city}".strip() if name == "Динамо" and city else name
+
+        tour = re.search(r'calendarthumb__title-detail.*?calendarthumb__text-item">\s*([^<]+?)\s*<', body, re.S)
+        tournament = tour.group(1).strip() if tour else "КХЛ"
+        # Календарь только про официальные матчи — предсезонку не берём.
+        if re.search(r"Контрольн|Товарищ", tournament):
+            continue
+        gid = re.search(r"dynamo\.ru/game/(\d+)", body)
+        games.append({
+            "id": f"g{gid.group(1)}" if gid else f"d{dt:%Y%m%d}",
+            "date": dt.strftime("%Y-%m-%d"),
+            "time": dt.strftime("%H:%M"),
+            "opponent": opponent,
+            "tournament": tournament,
+            "location": "ВТБ Арена, Москва",
+        })
+    # Год берём из матчей активного месяца: сезон переходит через Новый год.
+    month = (years.pop(), active_month) if len(years) == 1 and active_month else None
+    return games, month
+
+
+def refresh_hockey_file():
+    """Сверяет hockey.json с сайтом за те месяцы, которые сайт показал.
+
+    Внутри охваченного месяца сайт считается истиной: так подхватываются переносы
+    и отмены. Остальные месяцы не трогаем — про них сайт сейчас ничего не говорит.
+    id сохраняется по дате, иначе у подписчиков разъедутся UID.
+    """
+    known = json.loads(HOCKEY.read_text(encoding="utf-8")) if HOCKEY.exists() else []
+    try:
+        scraped, month = scrape_hockey()
+    except Exception as e:
+        print(f"ВНИМАНИЕ: сайт ХК недоступен ({e}) — хоккей оставлен как есть", file=sys.stderr)
+        return known
+    if not month:
+        print("ВНИМАНИЕ: не удалось понять, какой месяц показывает сайт ХК — "
+              "хоккей оставлен как есть", file=sys.stderr)
+        return known
+
+    scraped = [g for g in scraped
+               if (int(g["date"][:4]), int(g["date"][5:7])) == month]
+    by_date = {g["date"]: g for g in known}
+    kept = [g for g in known
+            if (int(g["date"][:4]), int(g["date"][5:7])) != month]
+    for g in scraped:
+        prev = by_date.get(g["date"])
+        if prev:
+            g["id"] = prev["id"]                       # UID менять нельзя
+            g["location"] = prev.get("location", g["location"])
+        kept.append(g)
+
+    kept.sort(key=lambda x: (x["date"], x["time"] or "99:99"))
+    if kept != known:
+        HOCKEY.write_text(json.dumps(kept, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        print(f"хоккей сверен с сайтом за {month[0]}-{month[1]:02d}: "
+              f"было {len(known)}, стало {len(kept)}")
+    return kept
+
+
 def parse_hockey():
-    if not HOCKEY.exists():
-        return []
     events = []
-    for g in json.loads(HOCKEY.read_text(encoding="utf-8")):
+    for g in refresh_hockey_file():
         d = datetime.strptime(g["date"], "%Y-%m-%d")
         if g.get("time"):
             hh, mm = (int(x) for x in g["time"].split(":"))
