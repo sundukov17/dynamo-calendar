@@ -1,0 +1,46 @@
+name: Пересборка календаря
+
+on:
+  schedule:
+    # 03:40 UTC = 06:40 МСК. Минута неровная намеренно — не попадать в пик,
+    # когда GitHub запускает всё, что стоит на ровном часе.
+    - cron: '40 3 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+# Пуш от GITHUB_TOKEN не перезапускает workflow, поэтому цикла не будет.
+permissions:
+  contents: write
+
+concurrency:
+  group: rebuild
+  cancel-in-progress: false
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Проверить доступность источника
+        run: |
+          echo "== fcdynamo.ru =="
+          curl -sS -o /tmp/feed.ics -w 'http=%{http_code} bytes=%{size_download}\n' \
+            --max-time 60 https://fcdynamo.ru/calendar/dynamo || echo "недоступен"
+          echo "событий в фиде: $(grep -c 'BEGIN:VEVENT' /tmp/feed.ics || echo 0)"
+
+      - name: Собрать календарь
+        run: python3 build_calendar.py
+
+      - name: Закоммитить, если что-то поменялось
+        run: |
+          if git diff --quiet -- dynamo.ics state.json; then
+            echo "изменений нет — коммит не нужен"
+            exit 0
+          fi
+          git config user.name  "dynamo-calendar bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add dynamo.ics state.json
+          git commit -m "Обновить календарь: $(grep -c 'BEGIN:VEVENT' dynamo.ics) матчей"
+          git push
