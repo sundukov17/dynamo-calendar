@@ -25,17 +25,28 @@ FOOTBALL_FEED = "https://fcdynamo.ru/calendar/dynamo"
 OUT = ROOT / "dynamo.ics"
 STATE = ROOT / "state.json"
 HOCKEY = ROOT / "hockey.json"
-HOCKEY_PAGE = "https://www.sports.ru/hockey/club/dinamo/calendar/"
+HOCKEY_PAGE = "https://dynamo.ru/games"
+HOCKEY_API = "https://dynamo.ru/filter-games"
 # Ни клуб, ни sports.ru арену не публикуют — держим известное значение.
 HOCKEY_VENUE = "ВТБ Ледовый Дворец, Москва"
+# Сайт клуба называет турниры по-своему; остальные оставляем как есть
+# (например, «Кубок Мэра Москвы» — предсезонный, но настоящий турнир).
+HOCKEY_TOURNAMENTS = {
+    "Регулярный чемпионат": "КХЛ",
+    "Плей-офф": "КХЛ, плей-офф",
+}
 
 # Средняя длительность, если источник не сказал иначе.
 FOOTBALL_LEN = timedelta(hours=1, minutes=45)
 HOCKEY_LEN = timedelta(hours=2, minutes=30)
 
 
-def fetch(url):
-    req = urllib.request.Request(url, headers={"User-Agent": "dynamo-calendar/1.0"})
+def fetch(url, xhr=False):
+    headers = {"User-Agent": "dynamo-calendar/1.0"}
+    if xhr:
+        headers["X-Requested-With"] = "XMLHttpRequest"
+        headers["Referer"] = HOCKEY_PAGE
+    req = urllib.request.Request(url, headers=headers)
     try:
         with urllib.request.urlopen(req, timeout=60) as r:
             return r.read().decode("utf-8", "replace")
@@ -153,51 +164,69 @@ def parse_football():
 
 
 def scrape_hockey():
-    """Домашние матчи КХЛ из календаря команды на sports.ru.
+    """Домашние официальные матчи ХК «Динамо» за весь сезон.
 
-    Сайт клуба не годится: filter-games отвечает 500, а /games отдаёт только
-    текущий месяц — время сентябрьских матчей в августе там не увидеть.
-    На sports.ru лежит весь сезон сразу, с точным временем там, где оно назначено.
+    Страница /games рисует только один месяц, но её же AJAX отдаёт любой:
+    GET /filter-games?activeMonth=<месяц>&season=<id>&tournament=&rival=.
+    Ключевой параметр — activeMonth: без него эндпоинт отвечает 500.
+    Сезон и список месяцев берём со страницы, чтобы ничего не хардкодить.
     """
-    html_text = fetch(HOCKEY_PAGE)
-    rows = re.findall(
-        r"<tr[^>]*>((?:(?!</tr>).)*?/hockey/match/(?:(?!</tr>).)*?)</tr>",
-        html_text, re.S)
+    page = fetch(HOCKEY_PAGE)
+    season = re.search(r'<option value="(\d+)"[^>]*selected', page)
+    if not season:
+        raise RuntimeError("не найден текущий сезон на странице клуба")
+    months = sorted({int(m) for m in re.findall(r'data-month="(\d+)"', page)})
+    if not months:
+        raise RuntimeError("не найден список месяцев на странице клуба")
 
-    games, seen = [], {}
-    for row in rows:
-        cells = [x.strip() for x in re.split(r"<[^>]+>", ics_unescape_entities(row)) if x.strip()]
-        if "Дома" not in cells:
-            continue
-        date = next((c for c in cells if re.fullmatch(r"\d{2}\.\d{2}\.\d{4}", c)), None)
-        if not date:
-            continue
-        time = next((c for c in cells if re.fullmatch(r"\d{2}:\d{2}", c)), None)
-        # Необъявленное время sports.ru показывает как полночь, сдвигая её на
-        # 01:00 или 02:00. Домашние матчи в Москве раньше полудня не начинаются,
-        # так что любое утреннее время здесь — заглушка, а не расписание.
-        if time and time < "10:00":
-            time = None
+    games = {}
+    for month in months:
+        url = (f"{HOCKEY_API}?activeMonth={month}&season={season.group(1)}"
+               "&tournament=&rival=")
+        payload = json.loads(fetch(url, xhr=True)).get("template", "")
+        # В сетку месяца затекают соседние дни, поэтому один матч приходит
+        # дважды — складываем в словарь по id матча.
+        for attrs, body in re.findall(
+                r'<div class="calendarframe"([^>]*)>(.*?)(?=<div class="calendarframe|\Z)',
+                payload, re.S):
+            if 'data-content="fill"' not in attrs or 'data-location="home"' not in attrs:
+                continue
+            get = lambda n: (re.search(rf'{n}="([^"]*)"', attrs) or ["", ""])[1]
+            start, gid = get("data-calendar-date-start"), re.search(r"dynamo\.ru/game/(\d+)", body)
+            if not start or not gid:
+                continue
 
-        # Соперник — из ссылки на его клуб; slug даёт стабильный id, не зависящий
-        # от того, как сайт пишет название, и переживающий перенос матча.
-        rival = re.search(r'/hockey/club/([\w-]+)/"[^>]*title="([^"]+)"', row)
-        if not rival:
-            continue
-        slug, name = rival.group(1), rival.group(2)
-        seen[slug] = seen.get(slug, 0) + 1
+            tour = re.search(
+                r'calendarthumb__title-detail.*?calendarthumb__text-item">\s*([^<]+?)\s*<',
+                body, re.S)
+            tournament = tour.group(1).strip() if tour else "КХЛ"
+            # Календарь только про официальные матчи — предсезонку не берём.
+            if re.search(r"Контрольн|Товарищ", tournament):
+                continue
 
-        games.append({
-            "id": f"{slug}-{seen[slug]}",
-            "date": f"{date[6:]}-{date[3:5]}-{date[:2]}",
-            "time": time,
-            "opponent": name,
-            "tournament": "КХЛ",
-            "location": HOCKEY_VENUE,
-        })
+            # «Динамо (Москва) - Барыс (Астана)» -> «Барыс».
+            # Минское пишется как «Динамо Мн», так что со своими не спутать.
+            title = unescape(get("data-calendar-title"))
+            sides = [x.strip() for x in re.split(r"\s+[-–—]\s+", title)]
+            rival = next((x for x in sides if not x.startswith("Динамо (Москва)")), "")
+            opponent = re.sub(r"\s*\([^)]*\)", "", rival).strip()
+            if not opponent:
+                continue
 
-    games.sort(key=lambda g: (g["date"], g["time"] or "99:99"))
-    return games
+            dt = datetime.strptime(start, "%m/%d/%Y %H:%M")
+            games[gid.group(1)] = {
+                "id": f"g{gid.group(1)}",
+                "date": dt.strftime("%Y-%m-%d"),
+                # Полночь у клуба означает «время ещё не назначено»:
+                # домашние матчи в Москве раньше полудня не начинаются.
+                "time": dt.strftime("%H:%M") if dt.hour >= 10 else None,
+                "opponent": opponent,
+                "tournament": HOCKEY_TOURNAMENTS.get(tournament, tournament),
+                "location": HOCKEY_VENUE,
+            }
+
+    out = sorted(games.values(), key=lambda g: (g["date"], g["time"] or "99:99"))
+    return out
 
 
 def refresh_hockey_file():
@@ -244,7 +273,7 @@ def parse_hockey():
             "start": start,
             "end": end,
             "location": g.get("location", "ВТБ Арена, Москва"),
-            "description": "Источник: календарь команды на sports.ru.",
+            "description": "Источник: официальный сайт ХК «Динамо» (dynamo.ru).",
         })
     return events
 

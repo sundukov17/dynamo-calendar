@@ -1,4 +1,8 @@
 {
+  "hk-g1436@dynamo-calendar": {
+    "sig": "60e8bfe1ed9ef065",
+    "seq": 0
+  },
   "fb-6775@dynamo-calendar": {
     "sig": "6330fbba2a8a3f68",
     "seq": 0
@@ -7,168 +11,168 @@
     "sig": "c1c2df37b64ca5aa",
     "seq": 0
   },
-  "hk-admiral-1@dynamo-calendar": {
+  "hk-g1367@dynamo-calendar": {
     "sig": "1057f9a78df5cbfb",
     "seq": 0
   },
-  "hk-dynamo-minsk-1@dynamo-calendar": {
-    "sig": "4e7c870d66d24399",
+  "hk-g1368@dynamo-calendar": {
+    "sig": "d5d94c69a82c31dc",
     "seq": 0
   },
   "fb-6749@dynamo-calendar": {
     "sig": "9daa75942d858370",
     "seq": 0
   },
-  "hk-barys-1@dynamo-calendar": {
-    "sig": "76eabf906e62db2f",
+  "hk-g1372@dynamo-calendar": {
+    "sig": "277e25e8c7f063db",
     "seq": 0
   },
-  "hk-dynamo-minsk-2@dynamo-calendar": {
-    "sig": "ce365c853dc4c643",
+  "hk-g1373@dynamo-calendar": {
+    "sig": "2066d4429e22ea91",
     "seq": 0
   },
-  "hk-salavat-1@dynamo-calendar": {
-    "sig": "26a002820049737c",
+  "hk-g1374@dynamo-calendar": {
+    "sig": "79499eb275e610ee",
     "seq": 0
   },
-  "hk-traktor-1@dynamo-calendar": {
-    "sig": "ad4010889830f865",
+  "hk-g1375@dynamo-calendar": {
+    "sig": "fe4dfa9e4515c548",
     "seq": 0
   },
-  "hk-torpedo-nn-1@dynamo-calendar": {
-    "sig": "213615bb7e93b6cc",
+  "hk-g1376@dynamo-calendar": {
+    "sig": "541295621855ff9f",
     "seq": 0
   },
-  "hk-shanghai-dragons-1@dynamo-calendar": {
-    "sig": "9ed01eedbe7b4cc7",
+  "hk-g1378@dynamo-calendar": {
+    "sig": "32a4d46fdc1264b8",
     "seq": 0
   },
-  "hk-cska-1@dynamo-calendar": {
-    "sig": "e5aa1eb358c3b682",
+  "hk-g1379@dynamo-calendar": {
+    "sig": "1aed43b30e9455fa",
     "seq": 0
   },
-  "hk-ska-1@dynamo-calendar": {
-    "sig": "0b0139c670de8aaf",
+  "hk-g1380@dynamo-calendar": {
+    "sig": "6027908c64276d08",
     "seq": 0
   },
   "fb-6752@dynamo-calendar": {
     "sig": "b1a054c3a1ea02c5",
     "seq": 0
   },
-  "hk-sibir-1@dynamo-calendar": {
-    "sig": "c936b6a1c2c5b66e",
+  "hk-g1384@dynamo-calendar": {
+    "sig": "747577e0dc75b09e",
     "seq": 0
   },
-  "hk-avangard-1@dynamo-calendar": {
-    "sig": "bcdff3a52aecf6e4",
+  "hk-g1386@dynamo-calendar": {
+    "sig": "ec2862c8ae5bcea0",
     "seq": 0
   },
-  "hk-amur-1@dynamo-calendar": {
-    "sig": "aa724918417825b0",
+  "hk-g1387@dynamo-calendar": {
+    "sig": "a08e92d2487f8dbd",
     "seq": 0
   },
   "fb-6754@dynamo-calendar": {
     "sig": "350942364513516e",
     "seq": 0
   },
-  "hk-cska-2@dynamo-calendar": {
-    "sig": "e2667025c1c0b017",
-    "seq": 0
-  },
   "fb-6756@dynamo-calendar": {
     "sig": "c954485970084053",
     "seq": 0
   },
-  "hk-avtomobilist-1@dynamo-calendar": {
-    "sig": "c09fda1e7a6ab7ec",
+  "hk-g1394@dynamo-calendar": {
+    "sig": "459d8a669af3465f",
+    "seq": 0
+  },
+  "hk-g1395@dynamo-calendar": {
+    "sig": "06ba8eea9a827433",
     "seq": 0
   },
   "fb-6778@dynamo-calendar": {
     "sig": "0fc55cb1ec54cb33",
     "seq": 0
   },
-  "hk-torpedo-nn-2@dynamo-calendar": {
-    "sig": "006606261f440ecb",
+  "hk-g1396@dynamo-calendar": {
+    "sig": "4d1f84867a8f443e",
     "seq": 0
   },
-  "hk-spartak-1@dynamo-calendar": {
-    "sig": "80dacd9dca051229",
+  "hk-g1400@dynamo-calendar": {
+    "sig": "7782e755213a18ad",
     "seq": 0
   },
-  "hk-metallurg-magnitogorsk-1@dynamo-calendar": {
-    "sig": "6550e1c08570d293",
+  "hk-g1401@dynamo-calendar": {
+    "sig": "9a73c2c8f5b7a9ce",
     "seq": 0
   },
-  "hk-dynamo-minsk-3@dynamo-calendar": {
-    "sig": "531d03bb378d0319",
+  "hk-g1408@dynamo-calendar": {
+    "sig": "a1df80aafa13fc96",
     "seq": 0
   },
-  "hk-cska-3@dynamo-calendar": {
-    "sig": "1763034b49cf2cb6",
+  "hk-g1409@dynamo-calendar": {
+    "sig": "d267f5be7a00901a",
     "seq": 0
   },
-  "hk-severstal-1@dynamo-calendar": {
-    "sig": "7ef2f6b2fcb2101d",
+  "hk-g1410@dynamo-calendar": {
+    "sig": "d6155923839f3fcc",
     "seq": 0
   },
-  "hk-lada-1@dynamo-calendar": {
-    "sig": "783bd500d9ad2c3b",
+  "hk-g1411@dynamo-calendar": {
+    "sig": "8d327ef4f115b514",
     "seq": 0
   },
-  "hk-ska-2@dynamo-calendar": {
-    "sig": "b050d916e27f4524",
+  "hk-g1412@dynamo-calendar": {
+    "sig": "610df064fd7293f9",
     "seq": 0
   },
-  "hk-neftekhimik-1@dynamo-calendar": {
-    "sig": "bb51dd6180bbc4d4",
+  "hk-g1415@dynamo-calendar": {
+    "sig": "94dccb04f336f6da",
     "seq": 0
   },
-  "hk-sochi-1@dynamo-calendar": {
-    "sig": "559579e06ac65275",
+  "hk-g1416@dynamo-calendar": {
+    "sig": "efaf5796a133695f",
     "seq": 0
   },
-  "hk-sochi-2@dynamo-calendar": {
-    "sig": "892159b3508c8794",
+  "hk-g1417@dynamo-calendar": {
+    "sig": "d4b86a751bca50d1",
     "seq": 0
   },
-  "hk-severstal-2@dynamo-calendar": {
-    "sig": "05ca18cd5cfadd0a",
+  "hk-g1418@dynamo-calendar": {
+    "sig": "be7a87f44386a10c",
     "seq": 0
   },
-  "hk-lada-2@dynamo-calendar": {
-    "sig": "7bd01f8bc8449fc9",
+  "hk-g1419@dynamo-calendar": {
+    "sig": "24ff6ae15c686b44",
     "seq": 0
   },
-  "hk-ak-bars-1@dynamo-calendar": {
-    "sig": "2af9691d17bfe7e1",
+  "hk-g1423@dynamo-calendar": {
+    "sig": "d6485a5a8efb3fc7",
     "seq": 0
   },
   "fb-6759@dynamo-calendar": {
     "sig": "608c4be0a57fc781",
     "seq": 0
   },
-  "hk-shanghai-dragons-2@dynamo-calendar": {
-    "sig": "7fb12c4ad6de23da",
+  "hk-g1427@dynamo-calendar": {
+    "sig": "126c95926b8cbf3c",
     "seq": 0
   },
-  "hk-lokomotiv-yaroslavl-1@dynamo-calendar": {
-    "sig": "3a0618a18ddc6957",
+  "hk-g1428@dynamo-calendar": {
+    "sig": "7fe60429b5a228df",
     "seq": 0
   },
-  "hk-spartak-2@dynamo-calendar": {
-    "sig": "473a08f0c538295a",
+  "hk-g1429@dynamo-calendar": {
+    "sig": "21ae846592b6946a",
     "seq": 0
   },
-  "hk-ak-bars-2@dynamo-calendar": {
-    "sig": "d5f140b9a74a9149",
+  "hk-g1430@dynamo-calendar": {
+    "sig": "e0270a925b8f192f",
     "seq": 0
   },
   "fb-6761@dynamo-calendar": {
     "sig": "d2873cc3065e4b99",
     "seq": 0
   },
-  "hk-lokomotiv-yaroslavl-2@dynamo-calendar": {
-    "sig": "10a5ace57e57f58f",
+  "hk-g1431@dynamo-calendar": {
+    "sig": "ba26730f5cd3dac5",
     "seq": 0
   },
   "fb-6763@dynamo-calendar": {

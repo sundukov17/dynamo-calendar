@@ -1,6 +1,14 @@
 [
   {
-    "id": "admiral-1",
+    "id": "g1436",
+    "date": "2026-08-28",
+    "time": "15:30",
+    "opponent": "Торпедо",
+    "tournament": "Кубок Мэра Москвы",
+    "location": "ВТБ Ледовый Дворец, Москва"
+  },
+  {
+    "id": "g1367",
     "date": "2026-09-09",
     "time": "19:30",
     "opponent": "Адмирал",
@@ -8,265 +16,265 @@
     "location": "ВТБ Ледовый Дворец, Москва"
   },
   {
-    "id": "dynamo-minsk-1",
+    "id": "g1368",
     "date": "2026-09-12",
-    "time": null,
-    "opponent": "Динамо Минск",
+    "time": "17:00",
+    "opponent": "Динамо Мн",
     "tournament": "КХЛ",
     "location": "ВТБ Ледовый Дворец, Москва"
   },
   {
-    "id": "barys-1",
+    "id": "g1372",
     "date": "2026-09-22",
-    "time": null,
+    "time": "19:30",
     "opponent": "Барыс",
     "tournament": "КХЛ",
     "location": "ВТБ Ледовый Дворец, Москва"
   },
   {
-    "id": "dynamo-minsk-2",
+    "id": "g1373",
     "date": "2026-09-24",
-    "time": null,
-    "opponent": "Динамо Минск",
+    "time": "19:30",
+    "opponent": "Динамо Мн",
     "tournament": "КХЛ",
     "location": "ВТБ Ледовый Дворец, Москва"
   },
   {
-    "id": "salavat-1",
+    "id": "g1374",
     "date": "2026-09-26",
-    "time": null,
+    "time": "17:00",
     "opponent": "Салават Юлаев",
     "tournament": "КХЛ",
     "location": "ВТБ Ледовый Дворец, Москва"
   },
   {
-    "id": "traktor-1",
+    "id": "g1375",
     "date": "2026-09-28",
-    "time": null,
+    "time": "19:30",
     "opponent": "Трактор",
     "tournament": "КХЛ",
     "location": "ВТБ Ледовый Дворец, Москва"
   },
   {
-    "id": "torpedo-nn-1",
+    "id": "g1376",
     "date": "2026-10-01",
-    "time": null,
+    "time": "19:30",
     "opponent": "Торпедо",
     "tournament": "КХЛ",
     "location": "ВТБ Ледовый Дворец, Москва"
   },
   {
-    "id": "shanghai-dragons-1",
+    "id": "g1378",
     "date": "2026-10-07",
-    "time": null,
-    "opponent": "Шанхай Дрэгонс",
+    "time": "19:30",
+    "opponent": "Шанхайские Драконы",
     "tournament": "КХЛ",
     "location": "ВТБ Ледовый Дворец, Москва"
   },
   {
-    "id": "cska-1",
+    "id": "g1379",
     "date": "2026-10-09",
-    "time": null,
+    "time": "19:30",
     "opponent": "ЦСКА",
     "tournament": "КХЛ",
     "location": "ВТБ Ледовый Дворец, Москва"
   },
   {
-    "id": "ska-1",
+    "id": "g1380",
     "date": "2026-10-11",
-    "time": null,
+    "time": "17:00",
     "opponent": "СКА",
     "tournament": "КХЛ",
     "location": "ВТБ Ледовый Дворец, Москва"
   },
   {
-    "id": "sibir-1",
+    "id": "g1384",
     "date": "2026-10-20",
-    "time": null,
+    "time": "19:30",
     "opponent": "Сибирь",
     "tournament": "КХЛ",
     "location": "ВТБ Ледовый Дворец, Москва"
   },
   {
-    "id": "avangard-1",
+    "id": "g1386",
     "date": "2026-10-26",
-    "time": null,
+    "time": "19:30",
     "opponent": "Авангард",
     "tournament": "КХЛ",
     "location": "ВТБ Ледовый Дворец, Москва"
   },
   {
-    "id": "amur-1",
+    "id": "g1387",
     "date": "2026-10-28",
-    "time": null,
+    "time": "19:30",
     "opponent": "Амур",
     "tournament": "КХЛ",
     "location": "ВТБ Ледовый Дворец, Москва"
   },
   {
-    "id": "cska-2",
+    "id": "g1394",
     "date": "2026-11-22",
-    "time": null,
+    "time": "17:00",
     "opponent": "ЦСКА",
     "tournament": "КХЛ",
     "location": "ВТБ Ледовый Дворец, Москва"
   },
   {
-    "id": "avtomobilist-1",
+    "id": "g1395",
     "date": "2026-11-24",
-    "time": null,
+    "time": "19:30",
     "opponent": "Автомобилист",
     "tournament": "КХЛ",
     "location": "ВТБ Ледовый Дворец, Москва"
   },
   {
-    "id": "torpedo-nn-2",
+    "id": "g1396",
     "date": "2026-11-30",
-    "time": null,
+    "time": "19:30",
     "opponent": "Торпедо",
     "tournament": "КХЛ",
     "location": "ВТБ Ледовый Дворец, Москва"
   },
   {
-    "id": "spartak-1",
+    "id": "g1400",
     "date": "2026-12-15",
-    "time": null,
+    "time": "19:30",
     "opponent": "Спартак",
     "tournament": "КХЛ",
     "location": "ВТБ Ледовый Дворец, Москва"
   },
   {
-    "id": "metallurg-magnitogorsk-1",
+    "id": "g1401",
     "date": "2026-12-17",
-    "time": null,
+    "time": "19:30",
     "opponent": "Металлург Мг",
     "tournament": "КХЛ",
     "location": "ВТБ Ледовый Дворец, Москва"
   },
   {
-    "id": "dynamo-minsk-3",
+    "id": "g1408",
     "date": "2027-01-08",
-    "time": null,
-    "opponent": "Динамо Минск",
+    "time": "17:00",
+    "opponent": "Динамо Мн",
     "tournament": "КХЛ",
     "location": "ВТБ Ледовый Дворец, Москва"
   },
   {
-    "id": "cska-3",
+    "id": "g1409",
     "date": "2027-01-10",
-    "time": null,
+    "time": "17:00",
     "opponent": "ЦСКА",
     "tournament": "КХЛ",
     "location": "ВТБ Ледовый Дворец, Москва"
   },
   {
-    "id": "severstal-1",
+    "id": "g1410",
     "date": "2027-01-13",
-    "time": null,
+    "time": "19:30",
     "opponent": "Северсталь",
     "tournament": "КХЛ",
     "location": "ВТБ Ледовый Дворец, Москва"
   },
   {
-    "id": "lada-1",
+    "id": "g1411",
     "date": "2027-01-15",
-    "time": null,
+    "time": "19:30",
     "opponent": "Лада",
     "tournament": "КХЛ",
     "location": "ВТБ Ледовый Дворец, Москва"
   },
   {
-    "id": "ska-2",
+    "id": "g1412",
     "date": "2027-01-17",
-    "time": null,
+    "time": "17:00",
     "opponent": "СКА",
     "tournament": "КХЛ",
     "location": "ВТБ Ледовый Дворец, Москва"
   },
   {
-    "id": "neftekhimik-1",
+    "id": "g1415",
     "date": "2027-01-25",
-    "time": null,
+    "time": "19:30",
     "opponent": "Нефтехимик",
     "tournament": "КХЛ",
     "location": "ВТБ Ледовый Дворец, Москва"
   },
   {
-    "id": "sochi-1",
+    "id": "g1416",
     "date": "2027-01-27",
-    "time": null,
-    "opponent": "Сочи",
+    "time": "19:30",
+    "opponent": "ХК Сочи",
     "tournament": "КХЛ",
     "location": "ВТБ Ледовый Дворец, Москва"
   },
   {
-    "id": "sochi-2",
+    "id": "g1417",
     "date": "2027-01-29",
-    "time": null,
-    "opponent": "Сочи",
+    "time": "19:30",
+    "opponent": "ХК Сочи",
     "tournament": "КХЛ",
     "location": "ВТБ Ледовый Дворец, Москва"
   },
   {
-    "id": "severstal-2",
+    "id": "g1418",
     "date": "2027-01-31",
-    "time": null,
+    "time": "17:00",
     "opponent": "Северсталь",
     "tournament": "КХЛ",
     "location": "ВТБ Ледовый Дворец, Москва"
   },
   {
-    "id": "lada-2",
+    "id": "g1419",
     "date": "2027-02-02",
-    "time": null,
+    "time": "19:30",
     "opponent": "Лада",
     "tournament": "КХЛ",
     "location": "ВТБ Ледовый Дворец, Москва"
   },
   {
-    "id": "ak-bars-1",
+    "id": "g1423",
     "date": "2027-02-16",
-    "time": null,
+    "time": "19:30",
     "opponent": "Ак Барс",
     "tournament": "КХЛ",
     "location": "ВТБ Ледовый Дворец, Москва"
   },
   {
-    "id": "shanghai-dragons-2",
+    "id": "g1427",
     "date": "2027-03-01",
-    "time": null,
-    "opponent": "Шанхай Дрэгонс",
+    "time": "19:30",
+    "opponent": "Шанхайские Драконы",
     "tournament": "КХЛ",
     "location": "ВТБ Ледовый Дворец, Москва"
   },
   {
-    "id": "lokomotiv-yaroslavl-1",
+    "id": "g1428",
     "date": "2027-03-03",
-    "time": null,
+    "time": "19:30",
     "opponent": "Локомотив",
     "tournament": "КХЛ",
     "location": "ВТБ Ледовый Дворец, Москва"
   },
   {
-    "id": "spartak-2",
+    "id": "g1429",
     "date": "2027-03-08",
-    "time": null,
+    "time": "17:00",
     "opponent": "Спартак",
     "tournament": "КХЛ",
     "location": "ВТБ Ледовый Дворец, Москва"
   },
   {
-    "id": "ak-bars-2",
+    "id": "g1430",
     "date": "2027-03-10",
-    "time": null,
+    "time": "19:30",
     "opponent": "Ак Барс",
     "tournament": "КХЛ",
     "location": "ВТБ Ледовый Дворец, Москва"
   },
   {
-    "id": "lokomotiv-yaroslavl-2",
+    "id": "g1431",
     "date": "2027-03-16",
-    "time": null,
+    "time": "19:30",
     "opponent": "Локомотив",
     "tournament": "КХЛ",
     "location": "ВТБ Ледовый Дворец, Москва"

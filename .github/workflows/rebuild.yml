@@ -32,12 +32,14 @@ jobs:
             -o /tmp/feed.ics https://fcdynamo.ru/calendar/dynamo
           test "$(grep -c 'BEGIN:VEVENT' /tmp/feed.ics)" -gt 0
 
-      - name: Источник — хоккей (sports.ru)
+      - name: Источник — хоккей (dynamo.ru)
         continue-on-error: true
         run: |
           curl --fail --silent --show-error --max-time 60 \
-            -o /tmp/games.html https://www.sports.ru/hockey/club/dinamo/calendar/
-          grep -q '/hockey/match/' /tmp/games.html
+            -H 'X-Requested-With: XMLHttpRequest' \
+            -o /tmp/games.json \
+            'https://dynamo.ru/filter-games?activeMonth=10&season=22&tournament=&rival='
+          grep -q 'data-calendar-date-start' /tmp/games.json
 
       - name: Собрать календарь
         run: python3 build_calendar.py
