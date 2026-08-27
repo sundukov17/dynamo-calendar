@@ -21,7 +21,6 @@ from zoneinfo import ZoneInfo
 MSK = ZoneInfo("Europe/Moscow")
 ROOT = Path(__file__).parent
 FOOTBALL_FEED = "https://fcdynamo.ru/calendar/dynamo"
-HOME_VENUE = "ВТБ Арена"
 OUT = ROOT / "dynamo.ics"
 STATE = ROOT / "state.json"
 HOCKEY = ROOT / "hockey.json"
@@ -88,16 +87,21 @@ def parse_football():
             m = re.search(rf"^{key}([^:]*):(.*)$", block, re.M)
             return (m.group(1), m.group(2).strip()) if m else ("", "")
 
-        _, location = get("LOCATION")
         _, desc = get("DESCRIPTION")
         desc = ics_unescape(desc)
-        if HOME_VENUE not in location:
-            continue
         if "Товарищеские" in desc:
             continue
 
         _, uid = get("UID")
         _, summary = get("SUMMARY")
+        _, location = get("LOCATION")
+        summary = ics_unescape(summary)
+
+        # Хозяин — тот, кто назван первым. По стадиону судить нельзя: домашний
+        # матч могут перенести на чужую арену, и он всё равно останется домашним.
+        sides = re.split(r"\s+[-–—]\s+", summary)
+        if len(sides) != 2 or sides[0].strip() != "Динамо":
+            continue
         _, dtstart = get("DTSTART")
         _, dtend = get("DTEND")
 
@@ -127,13 +131,14 @@ def parse_football():
             end = None  # время ещё не назначено -> событие на весь день
 
         # В фиде встречаются и дефис, и тире — приводим к одному виду.
-        summary = re.sub(r"\s+[-–—]\s+", " — ", ics_unescape(summary))
+        summary = " — ".join(x.strip() for x in sides)
         events.append({
             "uid": f"fb-{uid}@dynamo-calendar",
             "summary": f"{emoji} {summary} ({label})",
             "start": start,
             "end": end,
-            "location": "ВТБ Арена, Москва",
+            # Адрес берём из фида: домашние матчи бывают и не на «ВТБ Арене».
+            "location": f"{ics_unescape(location).strip(chr(171)+chr(187))}, Москва",
             "description": "Источник: официальный ICS-фид ФК «Динамо» (fcdynamo.ru).",
         })
     return events
