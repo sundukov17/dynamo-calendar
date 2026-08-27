@@ -14,6 +14,7 @@ import re
 import ssl
 import sys
 import urllib.request
+from html import unescape
 from datetime import datetime, timedelta
 from pathlib import Path
 from zoneinfo import ZoneInfo
@@ -24,7 +25,9 @@ FOOTBALL_FEED = "https://fcdynamo.ru/calendar/dynamo"
 OUT = ROOT / "dynamo.ics"
 STATE = ROOT / "state.json"
 HOCKEY = ROOT / "hockey.json"
-HOCKEY_PAGE = "https://dynamo.ru/games"
+HOCKEY_PAGE = "https://www.sports.ru/hockey/club/dinamo/calendar/"
+# Ни клуб, ни sports.ru арену не публикуют — держим известное значение.
+HOCKEY_VENUE = "ВТБ Ледовый Дворец, Москва"
 
 # Средняя длительность, если источник не сказал иначе.
 FOOTBALL_LEN = timedelta(hours=1, minutes=45)
@@ -46,6 +49,11 @@ def fetch(url):
         ctx = ssl.create_default_context(cafile="/etc/ssl/cert.pem")
         with urllib.request.urlopen(req, timeout=60, context=ctx) as r:
             return r.read().decode("utf-8", "replace")
+
+
+def ics_unescape_entities(v):
+    """HTML-сущности в тексте страницы: &nbsp;, &ndash; и прочее."""
+    return unescape(v)
 
 
 def unfold(text):
@@ -145,102 +153,79 @@ def parse_football():
 
 
 def scrape_hockey():
-    """Домашние матчи с сайта ХК «Динамо».
+    """Домашние матчи КХЛ из календаря команды на sports.ru.
 
-    Сайт отдаёт только текущий месяц: рабочего фида на весь сезон у клуба нет
-    (filter-games отвечает 500, khl.ru закрыт ботозащитой). Поэтому точное время
-    проставляется матчам по мере того, как их месяц становится текущим.
-
-    Возвращает (домашние официальные матчи, авторитетный месяц) — или (…, None),
-    если месяц определить не удалось.
+    Сайт клуба не годится: filter-games отвечает 500, а /games отдаёт только
+    текущий месяц — время сентябрьских матчей в августе там не увидеть.
+    На sports.ru лежит весь сезон сразу, с точным временем там, где оно назначено.
     """
-    html = fetch(HOCKEY_PAGE)
-    # В сетке месяца видны и соседние дни, поэтому «охваченным» считаем только
-    # тот месяц, который страница реально показывает, — иначе сверка снесёт
-    # матчи соседнего месяца, о которых сайт сейчас ничего не говорит.
-    active = re.search(r'data-month="(\d+)"[^>]*_active', html)
-    active_month = int(active.group(1)) if active else None
-    blocks = re.findall(
-        r'<div class="calendarframe"([^>]*)>(.*?)(?=<div class="calendarframe|<div class="line-regular)',
-        html, re.S)
-    games, years = [], set()
-    for attrs, body in blocks:
-        if 'data-content="fill"' not in attrs:
-            continue
-        get = lambda n: (re.search(rf'{n}="([^"]*)"', attrs) or ["", ""])[1]
-        start = get("data-calendar-date-start")
-        if not start:
-            continue
-        dt = datetime.strptime(start, "%m/%d/%Y %H:%M")
-        if dt.month == active_month:
-            years.add(dt.year)
-        if get("data-location") != "home":
-            continue
+    html_text = fetch(HOCKEY_PAGE)
+    rows = re.findall(
+        r"<tr[^>]*>((?:(?!</tr>).)*?/hockey/match/(?:(?!</tr>).)*?)</tr>",
+        html_text, re.S)
 
-        # «Динамо (Москва) - Барыс (Астана)» -> «Барыс».
-        # У минского «Динамо» город оставляем, иначе не отличить от своих.
-        title = get("data-calendar-title")
-        sides = [x.strip() for x in re.split(r"\s+[-–—]\s+", title)]
-        rival = next((x for x in sides if not x.startswith("Динамо (Москва)")), "")
-        city = (re.search(r"\(([^)]*)\)", rival) or ["", ""])[1].strip()
-        name = re.sub(r"\s*\([^)]*\)", "", rival).strip()
-        opponent = f"{name} {city}".strip() if name == "Динамо" and city else name
-
-        tour = re.search(r'calendarthumb__title-detail.*?calendarthumb__text-item">\s*([^<]+?)\s*<', body, re.S)
-        tournament = tour.group(1).strip() if tour else "КХЛ"
-        # Календарь только про официальные матчи — предсезонку не берём.
-        if re.search(r"Контрольн|Товарищ", tournament):
+    games, seen = [], {}
+    for row in rows:
+        cells = [x.strip() for x in re.split(r"<[^>]+>", ics_unescape_entities(row)) if x.strip()]
+        if "Дома" not in cells:
             continue
-        gid = re.search(r"dynamo\.ru/game/(\d+)", body)
+        date = next((c for c in cells if re.fullmatch(r"\d{2}\.\d{2}\.\d{4}", c)), None)
+        if not date:
+            continue
+        time = next((c for c in cells if re.fullmatch(r"\d{2}:\d{2}", c)), None)
+        # Необъявленное время sports.ru показывает как полночь, сдвигая её на
+        # 01:00 или 02:00. Домашние матчи в Москве раньше полудня не начинаются,
+        # так что любое утреннее время здесь — заглушка, а не расписание.
+        if time and time < "10:00":
+            time = None
+
+        # Соперник — из ссылки на его клуб; slug даёт стабильный id, не зависящий
+        # от того, как сайт пишет название, и переживающий перенос матча.
+        rival = re.search(r'/hockey/club/([\w-]+)/"[^>]*title="([^"]+)"', row)
+        if not rival:
+            continue
+        slug, name = rival.group(1), rival.group(2)
+        seen[slug] = seen.get(slug, 0) + 1
+
         games.append({
-            "id": f"g{gid.group(1)}" if gid else f"d{dt:%Y%m%d}",
-            "date": dt.strftime("%Y-%m-%d"),
-            "time": dt.strftime("%H:%M"),
-            "opponent": opponent,
-            "tournament": tournament,
-            "location": "ВТБ Арена, Москва",
+            "id": f"{slug}-{seen[slug]}",
+            "date": f"{date[6:]}-{date[3:5]}-{date[:2]}",
+            "time": time,
+            "opponent": name,
+            "tournament": "КХЛ",
+            "location": HOCKEY_VENUE,
         })
-    # Год берём из матчей активного месяца: сезон переходит через Новый год.
-    month = (years.pop(), active_month) if len(years) == 1 and active_month else None
-    return games, month
+
+    games.sort(key=lambda g: (g["date"], g["time"] or "99:99"))
+    return games
 
 
 def refresh_hockey_file():
-    """Сверяет hockey.json с сайтом за те месяцы, которые сайт показал.
+    """Переписывает hockey.json тем, что говорит источник.
 
-    Внутри охваченного месяца сайт считается истиной: так подхватываются переносы
-    и отмены. Остальные месяцы не трогаем — про них сайт сейчас ничего не говорит.
-    id сохраняется по дате, иначе у подписчиков разъедутся UID.
+    Источник покрывает весь сезон, поэтому сверять помесячно больше не нужно.
+    Но если он отвалился или отдал подозрительно мало матчей, оставляем прошлый
+    снимок: пустой календарь хуже слегка устаревшего.
     """
     known = json.loads(HOCKEY.read_text(encoding="utf-8")) if HOCKEY.exists() else []
     try:
-        scraped, month = scrape_hockey()
+        games = scrape_hockey()
     except Exception as e:
-        print(f"ВНИМАНИЕ: сайт ХК недоступен ({e}) — хоккей оставлен как есть", file=sys.stderr)
+        print(f"ВНИМАНИЕ: источник по хоккею недоступен ({e}) — взят прошлый снимок",
+              file=sys.stderr)
         return known
-    if not month:
-        print("ВНИМАНИЕ: не удалось понять, какой месяц показывает сайт ХК — "
-              "хоккей оставлен как есть", file=sys.stderr)
+    if len(games) < 10 and known:
+        print(f"ВНИМАНИЕ: источник отдал всего {len(games)} домашних матчей — "
+              "похоже на сбой, взят прошлый снимок", file=sys.stderr)
         return known
 
-    scraped = [g for g in scraped
-               if (int(g["date"][:4]), int(g["date"][5:7])) == month]
-    by_date = {g["date"]: g for g in known}
-    kept = [g for g in known
-            if (int(g["date"][:4]), int(g["date"][5:7])) != month]
-    for g in scraped:
-        prev = by_date.get(g["date"])
-        if prev:
-            g["id"] = prev["id"]                       # UID менять нельзя
-            g["location"] = prev.get("location", g["location"])
-        kept.append(g)
-
-    kept.sort(key=lambda x: (x["date"], x["time"] or "99:99"))
-    if kept != known:
-        HOCKEY.write_text(json.dumps(kept, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-        print(f"хоккей сверен с сайтом за {month[0]}-{month[1]:02d}: "
-              f"было {len(known)}, стало {len(kept)}")
-    return kept
+    if games != known:
+        HOCKEY.write_text(json.dumps(games, ensure_ascii=False, indent=2) + "\n",
+                          encoding="utf-8")
+        timed = sum(1 for g in games if g["time"])
+        print(f"хоккей обновлён: {len(games)} домашних матчей, "
+              f"время известно у {timed}")
+    return games
 
 
 def parse_hockey():
@@ -259,7 +244,7 @@ def parse_hockey():
             "start": start,
             "end": end,
             "location": g.get("location", "ВТБ Арена, Москва"),
-            "description": "Источник: официальный сайт ХК «Динамо» (dynamo.ru).",
+            "description": "Источник: календарь команды на sports.ru.",
         })
     return events
 

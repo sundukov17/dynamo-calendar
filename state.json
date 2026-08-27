@@ -7,47 +7,47 @@
     "sig": "c1c2df37b64ca5aa",
     "seq": 0
   },
-  "hk-2627-01@dynamo-calendar": {
-    "sig": "54e0fb80de5f23ab",
-    "seq": 2
+  "hk-admiral-1@dynamo-calendar": {
+    "sig": "1057f9a78df5cbfb",
+    "seq": 0
   },
-  "hk-2627-02@dynamo-calendar": {
-    "sig": "20c4c7bb9b1bfa6d",
+  "hk-dynamo-minsk-1@dynamo-calendar": {
+    "sig": "4e7c870d66d24399",
     "seq": 0
   },
   "fb-6749@dynamo-calendar": {
     "sig": "9daa75942d858370",
     "seq": 0
   },
-  "hk-2627-03@dynamo-calendar": {
+  "hk-barys-1@dynamo-calendar": {
     "sig": "76eabf906e62db2f",
     "seq": 0
   },
-  "hk-2627-04@dynamo-calendar": {
-    "sig": "cceb5acb8e9eb628",
+  "hk-dynamo-minsk-2@dynamo-calendar": {
+    "sig": "ce365c853dc4c643",
     "seq": 0
   },
-  "hk-2627-05@dynamo-calendar": {
+  "hk-salavat-1@dynamo-calendar": {
     "sig": "26a002820049737c",
     "seq": 0
   },
-  "hk-2627-06@dynamo-calendar": {
+  "hk-traktor-1@dynamo-calendar": {
     "sig": "ad4010889830f865",
     "seq": 0
   },
-  "hk-2627-07@dynamo-calendar": {
+  "hk-torpedo-nn-1@dynamo-calendar": {
     "sig": "213615bb7e93b6cc",
     "seq": 0
   },
-  "hk-2627-08@dynamo-calendar": {
-    "sig": "a7f742603c64eaf5",
+  "hk-shanghai-dragons-1@dynamo-calendar": {
+    "sig": "9ed01eedbe7b4cc7",
     "seq": 0
   },
-  "hk-2627-09@dynamo-calendar": {
+  "hk-cska-1@dynamo-calendar": {
     "sig": "e5aa1eb358c3b682",
     "seq": 0
   },
-  "hk-2627-10@dynamo-calendar": {
+  "hk-ska-1@dynamo-calendar": {
     "sig": "0b0139c670de8aaf",
     "seq": 0
   },
@@ -55,15 +55,15 @@
     "sig": "b1a054c3a1ea02c5",
     "seq": 0
   },
-  "hk-2627-11@dynamo-calendar": {
+  "hk-sibir-1@dynamo-calendar": {
     "sig": "c936b6a1c2c5b66e",
     "seq": 0
   },
-  "hk-2627-12@dynamo-calendar": {
+  "hk-avangard-1@dynamo-calendar": {
     "sig": "bcdff3a52aecf6e4",
     "seq": 0
   },
-  "hk-2627-13@dynamo-calendar": {
+  "hk-amur-1@dynamo-calendar": {
     "sig": "aa724918417825b0",
     "seq": 0
   },
@@ -71,7 +71,7 @@
     "sig": "350942364513516e",
     "seq": 0
   },
-  "hk-2627-14@dynamo-calendar": {
+  "hk-cska-2@dynamo-calendar": {
     "sig": "e2667025c1c0b017",
     "seq": 0
   },
@@ -79,7 +79,7 @@
     "sig": "c954485970084053",
     "seq": 0
   },
-  "hk-2627-15@dynamo-calendar": {
+  "hk-avtomobilist-1@dynamo-calendar": {
     "sig": "c09fda1e7a6ab7ec",
     "seq": 0
   },
@@ -87,59 +87,59 @@
     "sig": "0fc55cb1ec54cb33",
     "seq": 0
   },
-  "hk-2627-16@dynamo-calendar": {
+  "hk-torpedo-nn-2@dynamo-calendar": {
     "sig": "006606261f440ecb",
     "seq": 0
   },
-  "hk-2627-17@dynamo-calendar": {
+  "hk-spartak-1@dynamo-calendar": {
     "sig": "80dacd9dca051229",
     "seq": 0
   },
-  "hk-2627-18@dynamo-calendar": {
+  "hk-metallurg-magnitogorsk-1@dynamo-calendar": {
     "sig": "6550e1c08570d293",
     "seq": 0
   },
-  "hk-2627-19@dynamo-calendar": {
-    "sig": "52a863c7941c3018",
+  "hk-dynamo-minsk-3@dynamo-calendar": {
+    "sig": "531d03bb378d0319",
     "seq": 0
   },
-  "hk-2627-20@dynamo-calendar": {
+  "hk-cska-3@dynamo-calendar": {
     "sig": "1763034b49cf2cb6",
     "seq": 0
   },
-  "hk-2627-21@dynamo-calendar": {
+  "hk-severstal-1@dynamo-calendar": {
     "sig": "7ef2f6b2fcb2101d",
     "seq": 0
   },
-  "hk-2627-22@dynamo-calendar": {
+  "hk-lada-1@dynamo-calendar": {
     "sig": "783bd500d9ad2c3b",
     "seq": 0
   },
-  "hk-2627-23@dynamo-calendar": {
+  "hk-ska-2@dynamo-calendar": {
     "sig": "b050d916e27f4524",
     "seq": 0
   },
-  "hk-2627-24@dynamo-calendar": {
+  "hk-neftekhimik-1@dynamo-calendar": {
     "sig": "bb51dd6180bbc4d4",
     "seq": 0
   },
-  "hk-2627-25@dynamo-calendar": {
-    "sig": "226591c9283c9ccc",
+  "hk-sochi-1@dynamo-calendar": {
+    "sig": "559579e06ac65275",
     "seq": 0
   },
-  "hk-2627-26@dynamo-calendar": {
-    "sig": "b30f4ee605851bb1",
+  "hk-sochi-2@dynamo-calendar": {
+    "sig": "892159b3508c8794",
     "seq": 0
   },
-  "hk-2627-27@dynamo-calendar": {
+  "hk-severstal-2@dynamo-calendar": {
     "sig": "05ca18cd5cfadd0a",
     "seq": 0
   },
-  "hk-2627-28@dynamo-calendar": {
+  "hk-lada-2@dynamo-calendar": {
     "sig": "7bd01f8bc8449fc9",
     "seq": 0
   },
-  "hk-2627-29@dynamo-calendar": {
+  "hk-ak-bars-1@dynamo-calendar": {
     "sig": "2af9691d17bfe7e1",
     "seq": 0
   },
@@ -147,19 +147,19 @@
     "sig": "608c4be0a57fc781",
     "seq": 0
   },
-  "hk-2627-30@dynamo-calendar": {
-    "sig": "f7996bad131e8a38",
+  "hk-shanghai-dragons-2@dynamo-calendar": {
+    "sig": "7fb12c4ad6de23da",
     "seq": 0
   },
-  "hk-2627-31@dynamo-calendar": {
+  "hk-lokomotiv-yaroslavl-1@dynamo-calendar": {
     "sig": "3a0618a18ddc6957",
     "seq": 0
   },
-  "hk-2627-32@dynamo-calendar": {
+  "hk-spartak-2@dynamo-calendar": {
     "sig": "473a08f0c538295a",
     "seq": 0
   },
-  "hk-2627-33@dynamo-calendar": {
+  "hk-ak-bars-2@dynamo-calendar": {
     "sig": "d5f140b9a74a9149",
     "seq": 0
   },
@@ -167,7 +167,7 @@
     "sig": "d2873cc3065e4b99",
     "seq": 0
   },
-  "hk-2627-34@dynamo-calendar": {
+  "hk-lokomotiv-yaroslavl-2@dynamo-calendar": {
     "sig": "10a5ace57e57f58f",
     "seq": 0
   },
