@@ -1,19 +1,15 @@
 {
-  "hk-g1386@dynamo-calendar": {
-    "sig": "ec2862c8ae5bcea0",
-    "seq": 0
-  },
   "hk-g1387@dynamo-calendar": {
     "sig": "a08e92d2487f8dbd",
     "seq": 0
   },
   "fb-6754@dynamo-calendar": {
-    "sig": "350942364513516e",
-    "seq": 0
+    "sig": "a85987f1b8144cdc",
+    "seq": 1
   },
   "fb-6756@dynamo-calendar": {
-    "sig": "c954485970084053",
-    "seq": 0
+    "sig": "c00b082c742af7d9",
+    "seq": 1
   },
   "hk-g1394@dynamo-calendar": {
     "sig": "459d8a669af3465f",
@@ -24,8 +20,8 @@
     "seq": 0
   },
   "fb-6778@dynamo-calendar": {
-    "sig": "0fc55cb1ec54cb33",
-    "seq": 0
+    "sig": "2e200627ef43d42f",
+    "seq": 1
   },
   "hk-g1396@dynamo-calendar": {
     "sig": "4d1f84867a8f443e",
