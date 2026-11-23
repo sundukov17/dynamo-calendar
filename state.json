@@ -1,15 +1,11 @@
 {
-  "hk-g1394@dynamo-calendar": {
-    "sig": "08c51c9ea42d5f5b",
-    "seq": 1
-  },
   "hk-g1395@dynamo-calendar": {
     "sig": "06ba8eea9a827433",
     "seq": 0
   },
   "fb-6778@dynamo-calendar": {
-    "sig": "2e200627ef43d42f",
-    "seq": 1
+    "sig": "0fc55cb1ec54cb33",
+    "seq": 2
   },
   "hk-g1396@dynamo-calendar": {
     "sig": "4d1f84867a8f443e",

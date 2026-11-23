@@ -20,6 +20,7 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 MSK = ZoneInfo("Europe/Moscow")
+UTC = ZoneInfo("UTC")
 ROOT = Path(__file__).parent
 FOOTBALL_FEED = "https://fcdynamo.ru/calendar/dynamo"
 OUT = ROOT / "dynamo.ics"
@@ -97,6 +98,15 @@ def fold(line):
     return "\r\n ".join(parts)
 
 
+def parse_feed_time(value):
+    """Время из фида ФК. С 27.10.2026 это UTC с суффиксом Z, раньше было
+    московское без пояса. Принимаем оба варианта, на выходе всегда Москва."""
+    dt = datetime.strptime(value[:15], "%Y%m%dT%H%M%S")
+    if value.endswith("Z"):
+        return dt.replace(tzinfo=UTC).astimezone(MSK)
+    return dt.replace(tzinfo=MSK)
+
+
 def parse_football():
     """Домашние официальные матчи из фида клуба."""
     text = unfold(fetch(FOOTBALL_FEED))
@@ -137,14 +147,9 @@ def parse_football():
         stage = f"{m.group(1)} тур" if m else stage_raw
         label = f"{tour}, {stage}" if stage else tour
 
-        # Фид отдаёт локальное московское время без TZID.
         if "T" in dtstart:
-            start = datetime.strptime(dtstart[:15], "%Y%m%dT%H%M%S").replace(tzinfo=MSK)
-            end = (
-                datetime.strptime(dtend[:15], "%Y%m%dT%H%M%S").replace(tzinfo=MSK)
-                if "T" in dtend
-                else start + FOOTBALL_LEN
-            )
+            start = parse_feed_time(dtstart)
+            end = parse_feed_time(dtend) if "T" in dtend else start + FOOTBALL_LEN
         else:
             start = datetime.strptime(dtstart[:8], "%Y%m%d").replace(tzinfo=MSK)
             end = None  # время ещё не назначено -> событие на весь день
